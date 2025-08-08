@@ -197,82 +197,54 @@ def main():
     if not check_password():
         st.stop()
     
-    # Header BON PLEIN avec design de référence exact
-    st.markdown("""
-    <div style="
-        background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
-        height: 400px;
-        margin: -1rem -1rem 2rem -1rem;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        position: relative;
-        box-shadow: 0 8px 32px rgba(44, 62, 80, 0.3);
-    ">
-        <!-- Logo dans carré blanc -->
-        <div style="
-            position: absolute;
-            left: 40px;
-            width: 150px;
-            height: 150px;
-            background: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        ">
-            <img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" 
-                 alt="BON PLEIN CAPITAL" 
-                 style="max-width: 120px; max-height: 120px; object-fit: contain;">
+    # Header BON PLEIN avec composants Streamlit natifs
+    header_container = st.container()
+    
+    with header_container:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%); 
+                    padding: 2rem; margin: -1rem -1rem 2rem -1rem; border-radius: 16px;">
         </div>
+        """, unsafe_allow_html=True)
         
-        <!-- Titre principal et sous-titre -->
-        <div style="
-            margin-left: 230px;
-            flex: 1;
-        ">
-            <h1 style="
-                font-family: 'Helvetica Neue', Arial, sans-serif;
-                font-size: 72px;
-                font-weight: bold;
-                color: #FFFFFF;
-                margin: 0 0 20px 0;
-                line-height: 1.1;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            ">
-                Achats de cacao en Côte d'Ivoire
-            </h1>
-            
-            <p style="
-                font-family: 'Helvetica Neue', Arial, sans-serif;
-                font-size: 28px;
-                font-weight: normal;
-                color: rgba(255,255,255,0.8);
-                margin: 0;
-                line-height: 1.3;
-            ">
-                Dashboard des Achats Cacaoyers (2013-2025)
-            </p>
-        </div>
+        # Utiliser les colonnes Streamlit pour la mise en page
+        col1, col2, col3 = st.columns([1, 3, 1])
         
-        <!-- Texte côté droit -->
-        <div style="
-            position: absolute;
-            right: 40px;
-            text-align: right;
-            color: rgba(255,255,255,0.7);
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-size: 24px;
-            line-height: 1.4;
-        ">
-            <div>Bon Plein</div>
-            <div>Capital</div>
-            <div>Analytics</div>
-            <div>Solution</div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+        with col1:
+            # Container blanc pour le logo
+            st.markdown("""
+            <div style="background: white; padding: 1rem; border-radius: 12px; 
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.2); text-align: center; 
+                        position: relative; top: -100px; z-index: 10;">
+                <img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" 
+                     alt="BON PLEIN" style="height: 80px; width: auto;">
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown("""
+            <div style="position: relative; top: -120px; z-index: 10;">
+                <h1 style="color: white; font-size: 2.5rem; font-weight: bold; 
+                           margin: 0; text-align: center;">
+                    Achats de cacao en Côte d'Ivoire
+                </h1>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem; 
+                          text-align: center; margin: 0.5rem 0 0 0;">
+                    Dashboard des Achats Cacaoyers (2013-2025)
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col3:
+            st.markdown("""
+            <div style="text-align: right; color: rgba(255,255,255,0.7); 
+                        font-size: 1.1rem; position: relative; top: -100px; z-index: 10;">
+                <div>Bon Plein</div>
+                <div>Capital</div>
+                <div>Analytics</div>
+                <div>Solution</div>
+            </div>
+            """, unsafe_allow_html=True)
     
     # Chargement direct du fichier local
     df = None
