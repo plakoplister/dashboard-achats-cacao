@@ -443,11 +443,13 @@ def analyse_fournisseurs(df):
             }).sort_values('Volume livré (kg)', ascending=False)
             
             # Volume total de l'exportateur
-            total_exp = fournisseurs_exp['Volume livré (kg)'].sum()
+            total_exp = int(fournisseurs_exp['Volume livré (kg)'].sum())
             fournisseurs_exp['% du total'] = (fournisseurs_exp['Volume livré (kg)'] / total_exp * 100).round(1)
             
-            # Affichage des métriques  
-            st.metric("Total acheté", f"{format_number(total_exp)} kg", f"{format_number(total_exp/1000)} tonnes")
+            # Affichage des métriques avec séparateurs de milliers
+            total_exp_str = f"{total_exp:,}".replace(",", " ")
+            total_tonnes_str = f"{int(total_exp/1000):,}".replace(",", " ")
+            st.metric("Total acheté", f"{total_exp_str} kg", f"{total_tonnes_str} tonnes")
             st.metric("Nombre de fournisseurs", format_number(len(fournisseurs_exp)))
             
             # Top 10
