@@ -243,7 +243,7 @@ def main():
         st.sidebar.header("Filtres")
         
         # Affichage des informations sur les données
-        with st.expander("📊 Aperçu des données"):
+        with st.expander("Aperçu des données"):
             col1, col2 = st.columns(2)
             
             with col1:
