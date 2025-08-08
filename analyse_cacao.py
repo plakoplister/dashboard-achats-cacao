@@ -216,7 +216,7 @@ def main():
         'Dashboard des Achats Cacao (2020-2021)'
         '</p>'
         '</div>'
-        '<div style="text-align: right; color: #bdc3c7; font-size: 16px; line-height: 1.8; font-weight: 400;">'
+        '<div style="text-align: right; color: #bee3f8; font-size: 16px; line-height: 1.8; font-weight: 400;">'
         'Bon Plein<br>Capital<br>Analytics<br>Solution'
         '</div>'
         '</div>',
