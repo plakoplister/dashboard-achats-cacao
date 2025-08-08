@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Styles CSS BON PLEIN simplifiés
+# Styles CSS BON PLEIN
 st.markdown("""
 <style>
     /* Variables CSS BON PLEIN */
@@ -22,12 +22,14 @@ st.markdown("""
         --bleu-clair-accent: #bee3f8;
     }
     
-    /* Header principal */
+    /* Header principal avec cadre élégant */
     .main-header {
         background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
         padding: 2rem;
         margin: -1rem -1rem 2rem -1rem;
-        color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+        border: 2px solid #bee3f8;
     }
     
     .header-content {
@@ -48,6 +50,8 @@ st.markdown("""
         font-weight: 300 !important;
         margin: 0 !important;
         text-align: center;
+        font-family: Arial, sans-serif !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
     
     .main-subtitle {
@@ -56,6 +60,21 @@ st.markdown("""
         text-align: center;
         margin: 0.5rem 0 0 0 !important;
         font-weight: 300 !important;
+        font-family: Arial, sans-serif !important;
+    }
+    
+    /* Métriques avec style BON PLEIN */
+    [data-testid="metric-container"] {
+        background: white;
+        border: 1px solid #bee3f8;
+        padding: 1rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    [data-testid="metric-container"] > div > div {
+        color: #1e3a5f !important;
+        font-weight: 600 !important;
     }
     
     /* Footer */
@@ -66,6 +85,7 @@ st.markdown("""
         color: #666;
         margin-top: 2rem;
         border-top: 1px solid #bee3f8;
+        border-radius: 6px;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -425,7 +445,7 @@ def analyse_fournisseurs(df):
             total_exp = fournisseurs_exp['Volume livré (kg)'].sum()
             fournisseurs_exp['% du total'] = (fournisseurs_exp['Volume livré (kg)'] / total_exp * 100).round(1)
             
-            # Affichage des métriques
+            # Affichage des métriques  
             st.metric("Total acheté", f"{format_number(total_exp)} kg", f"{format_number(total_exp/1000)} tonnes")
             st.metric("Nombre de fournisseurs", format_number(len(fournisseurs_exp)))
             
