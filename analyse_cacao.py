@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import numpy as np
 from pathlib import Path
+from auth import check_password, show_access_logs
 
 st.set_page_config(
     page_title="Dashboard Achats Cacao - Côte d'Ivoire",
@@ -191,6 +192,10 @@ def apply_bon_plein_theme(fig):
     return fig
 
 def main():
+    # Vérifier l'authentification
+    if not check_password():
+        st.stop()
+    
     # Header BON PLEIN avec logo
     st.markdown("""
     <div class="main-header">
@@ -289,10 +294,13 @@ def main():
     <div class="footer">
         <p><strong>BON PLEIN Capital Analytics Solution</strong> | 
         Dashboard Achats Cacao - Côte d'Ivoire | 
-        v2.1 - Décembre 2024 | 
+        v2.2 - Décembre 2024 | 
         Données confidentielles - Usage interne uniquement</p>
     </div>
     """, unsafe_allow_html=True)
+    
+    # Afficher les logs d'accès pour l'admin
+    show_access_logs()
 
 def analyse_achats_exports(df):
     """Vue d'ensemble des ACHATS uniquement (les exports viennent d'une autre base)"""
