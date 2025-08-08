@@ -197,54 +197,81 @@ def main():
     if not check_password():
         st.stop()
     
-    # Header BON PLEIN avec composants Streamlit natifs
-    header_container = st.container()
-    
-    with header_container:
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%); 
-                    padding: 2rem; margin: -1rem -1rem 2rem -1rem; border-radius: 16px;">
+    # Header BON PLEIN avec spécifications EXACTES
+    st.markdown("""
+    <div class="dashboard-header" style="
+        width: 100%;
+        max-width: 1400px;
+        height: 240px;
+        background: linear-gradient(135deg, #2C3E50 0%, #3498db 100%);
+        border-radius: 16px;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        margin: -1rem auto 2rem auto;
+    ">
+        <!-- Logo côté gauche -->
+        <div class="logo-container" style="
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        ">
+            <img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" 
+                 alt="BON PLEIN CAPITAL" 
+                 style="max-width: 80px; max-height: 80px; object-fit: contain;">
         </div>
-        """, unsafe_allow_html=True)
         
-        # Utiliser les colonnes Streamlit pour la mise en page
-        col1, col2, col3 = st.columns([1, 3, 1])
+        <!-- Section du milieu (titre et sous-titre) -->
+        <div class="title-section" style="
+            flex: 1;
+            margin-left: 40px;
+        ">
+            <h1 style="
+                font-size: 56px;
+                font-weight: 700;
+                color: white;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                margin: 0;
+                line-height: 1.1;
+            ">
+                Achats de cacao en Côte d'Ivoire
+            </h1>
+            
+            <p style="
+                font-size: 22px;
+                font-weight: 400;
+                color: rgba(255, 255, 255, 0.85);
+                margin-top: 12px;
+                margin-bottom: 0;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            ">
+                Dashboard des Achats Cacaoyers (2013-2025)
+            </p>
+        </div>
         
-        with col1:
-            # Container blanc pour le logo
-            st.markdown("""
-            <div style="background: white; padding: 1rem; border-radius: 12px; 
-                        box-shadow: 0 4px 12px rgba(0,0,0,0.2); text-align: center; 
-                        position: relative; top: -100px; z-index: 10;">
-                <img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" 
-                     alt="BON PLEIN" style="height: 80px; width: auto;">
-            </div>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            st.markdown("""
-            <div style="position: relative; top: -120px; z-index: 10;">
-                <h1 style="color: white; font-size: 2.5rem; font-weight: bold; 
-                           margin: 0; text-align: center;">
-                    Achats de cacao en Côte d'Ivoire
-                </h1>
-                <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem; 
-                          text-align: center; margin: 0.5rem 0 0 0;">
-                    Dashboard des Achats Cacaoyers (2013-2025)
-                </p>
-            </div>
-            """, unsafe_allow_html=True)
-        
-        with col3:
-            st.markdown("""
-            <div style="text-align: right; color: rgba(255,255,255,0.7); 
-                        font-size: 1.1rem; position: relative; top: -100px; z-index: 10;">
-                <div>Bon Plein</div>
-                <div>Capital</div>
-                <div>Analytics</div>
-                <div>Solution</div>
-            </div>
-            """, unsafe_allow_html=True)
+        <!-- Texte côté droit -->
+        <div class="right-text" style="
+            text-align: right;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 20px;
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        ">
+            <div>Bon Plein</div>
+            <div>Capital</div>
+            <div>Analytics</div>
+            <div>Solution</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Chargement direct du fichier local
     df = None
