@@ -304,7 +304,7 @@ def main():
     <div class="footer">
         <p><strong>BON PLEIN Capital Analytics Solution</strong> | 
         Dashboard Achats Cacao - Côte d'Ivoire | 
-        v2.2 - Décembre 2024 | 
+        v2.2.3 - Décembre 2024 | 
         Données confidentielles - Usage interne uniquement</p>
     </div>
     """, unsafe_allow_html=True)
