@@ -25,12 +25,13 @@ st.markdown("""
     
     /* Header principal avec cadre élégant */
     .main-header {
-        background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
-        padding: 2rem;
-        margin: -1rem -1rem 2rem -1rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
-        border: 2px solid #bee3f8;
+        background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%) !important;
+        padding: 2rem !important;
+        margin: -1rem -1rem 2rem -1rem !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3) !important;
+        border: 2px solid #bee3f8 !important;
+        display: block !important;
     }
     
     .header-content {
@@ -196,17 +197,26 @@ def main():
     if not check_password():
         st.stop()
     
-    # Header BON PLEIN avec logo
+    # Header BON PLEIN avec logo et style inline robuste
     st.markdown("""
-    <div class="main-header">
-        <div class="header-content">
-            <div class="logo-container">
+    <div style="background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%); 
+                padding: 2rem; 
+                margin: -1rem -1rem 2rem -1rem; 
+                border-radius: 8px; 
+                box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3); 
+                border: 2px solid #bee3f8;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
                 <img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" 
                      alt="BON PLEIN Logo" style="height: 60px;">
             </div>
             <div style="flex: 1; text-align: center;">
-                <h1 class="main-title">Achats de cacao en Côte d'Ivoire</h1>
-                <p class="main-subtitle">Dashboard des Achats Cacao (2020-2021)</p>
+                <h1 style="color: white; font-size: 2.5rem; font-weight: 300; margin: 0; text-align: center; font-family: Arial, sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                    Achats de cacao en Côte d'Ivoire
+                </h1>
+                <p style="color: #bee3f8; font-size: 1.2rem; text-align: center; margin: 0.5rem 0 0 0; font-weight: 300; font-family: Arial, sans-serif;">
+                    Dashboard des Achats Cacao (2020-2021)
+                </p>
             </div>
             <div style="text-align: right; padding-right: 2rem;">
                 <p style="color: #bee3f8; font-size: 0.95rem; margin: 0; font-weight: 300; font-style: italic;">Bon Plein Capital</p>
