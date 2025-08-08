@@ -197,25 +197,26 @@ def main():
     if not check_password():
         st.stop()
     
-    # Header BON PLEIN - Approche simple compatible Streamlit Cloud
+    # Header BON PLEIN - Ajustements finaux design
     st.markdown(
-        '<div style="background: linear-gradient(135deg, #2C3E50 0%, #3498db 100%); '
-        'height: 240px; border-radius: 16px; padding: 40px; margin: -1rem -1rem 2rem -1rem; '
+        '<div style="background: linear-gradient(135deg, #3b4d63 0%, #4a6380 100%); '
+        'height: 220px; border-radius: 16px; padding: 40px; margin: -1rem -1rem 2rem -1rem; '
         'display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">'
-        '<div style="width: 120px; height: 120px; background: white; border-radius: 12px; '
-        'padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-right: 40px;">'
+        '<div style="width: 140px; height: 140px; background: white; border-radius: 12px; '
+        'padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-right: 40px; '
+        'display: flex; align-items: center; justify-content: center;">'
         '<img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" '
-        'style="width: 80px; height: 80px; object-fit: contain;">'
+        'style="max-width: 100px; max-height: 100px; object-fit: contain;">'
         '</div>'
         '<div style="flex: 1;">'
-        '<h1 style="font-size: 3.5rem; font-weight: 700; color: white; margin: 0; line-height: 1.1;">'
+        '<h1 style="font-size: 52px; font-weight: 700; color: white; margin: 0; line-height: 1.1;">'
         'Achats de cacao en Côte d\'Ivoire'
         '</h1>'
         '<p style="font-size: 1.4rem; color: rgba(255,255,255,0.85); margin: 12px 0 0 0;">'
         'Dashboard des Achats Cacaoyers (2013-2025)'
         '</p>'
         '</div>'
-        '<div style="text-align: right; color: rgba(255,255,255,0.7); font-size: 1.25rem; line-height: 1.6;">'
+        '<div style="text-align: right; color: rgba(255,255,255,0.6); font-size: 18px; line-height: 1.6;">'
         'Bon Plein<br>Capital<br>Analytics<br>Solution'
         '</div>'
         '</div>',
