@@ -197,26 +197,26 @@ def main():
     if not check_password():
         st.stop()
     
-    # Header BON PLEIN - Ajustements finaux design
+    # Header BON PLEIN - Charte graphique officielle
     st.markdown(
-        '<div style="background: linear-gradient(135deg, #3b4d63 0%, #4a6380 100%); '
-        'height: 220px; border-radius: 16px; padding: 40px; margin: -1rem -1rem 2rem -1rem; '
-        'display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">'
-        '<div style="width: 140px; height: 140px; background: white; border-radius: 12px; '
-        'padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-right: 40px; '
+        '<div style="background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%); '
+        'height: 200px; border-radius: 12px; padding: 35px; margin: -1rem -1rem 2rem -1rem; '
+        'display: flex; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">'
+        '<div style="width: 120px; height: 80px; background: white; border-radius: 8px; '
+        'padding: 15px; margin-right: 35px; '
         'display: flex; align-items: center; justify-content: center;">'
         '<img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" '
-        'style="max-width: 100px; max-height: 100px; object-fit: contain;">'
+        'style="max-width: 90px; max-height: 50px; object-fit: contain;">'
         '</div>'
-        '<div style="flex: 1;">'
-        '<h1 style="font-size: 52px; font-weight: 700; color: white; margin: 0; line-height: 1.1;">'
-        'Achats de cacao en Côte d\'Ivoire'
+        '<div style="flex: 1; text-align: center;">'
+        '<h1 style="font-size: 50px; font-weight: 700; color: white; margin: 0; line-height: 1.1; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;">'
+        'Achats de cacao de Côte d\'Ivoire'
         '</h1>'
-        '<p style="font-size: 1.4rem; color: rgba(255,255,255,0.85); margin: 12px 0 0 0;">'
-        'Dashboard des Achats Cacaoyers (2013-2025)'
+        '<p style="font-size: 18px; color: #bee3f8; margin: 8px 0 0 0; font-weight: 400;">'
+        'Dashboard des Achats Cacao (2020-2021)'
         '</p>'
         '</div>'
-        '<div style="text-align: right; color: rgba(255,255,255,0.6); font-size: 18px; line-height: 1.6;">'
+        '<div style="text-align: right; color: #bdc3c7; font-size: 16px; line-height: 1.8; font-weight: 400;">'
         'Bon Plein<br>Capital<br>Analytics<br>Solution'
         '</div>'
         '</div>',
