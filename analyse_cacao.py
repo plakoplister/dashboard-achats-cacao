@@ -197,31 +197,79 @@ def main():
     if not check_password():
         st.stop()
     
-    # Header BON PLEIN avec logo et style inline robuste
+    # Header BON PLEIN avec design de référence exact
     st.markdown("""
-    <div style="background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%); 
-                padding: 2rem; 
-                margin: -1rem -1rem 2rem -1rem; 
-                border-radius: 8px; 
-                box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3); 
-                border: 2px solid #bee3f8;">
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center; gap: 1rem;">
-                <img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" 
-                     alt="BON PLEIN Logo" style="height: 60px;">
-            </div>
-            <div style="flex: 1; text-align: center;">
-                <h1 style="color: white; font-size: 2.5rem; font-weight: 300; margin: 0; text-align: center; font-family: Arial, sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-                    Achats de cacao en Côte d'Ivoire
-                </h1>
-                <p style="color: #bee3f8; font-size: 1.2rem; text-align: center; margin: 0.5rem 0 0 0; font-weight: 300; font-family: Arial, sans-serif;">
-                    Dashboard des Achats Cacao (2020-2021)
-                </p>
-            </div>
-            <div style="text-align: right; padding-right: 2rem;">
-                <p style="color: #bee3f8; font-size: 0.95rem; margin: 0; font-weight: 300; font-style: italic;">Bon Plein Capital</p>
-                <p style="color: #bee3f8; font-size: 0.95rem; margin: 0; font-weight: 300; font-style: italic;">Analytics Solution</p>
-            </div>
+    <div style="
+        background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+        height: 400px;
+        margin: -1rem -1rem 2rem -1rem;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        box-shadow: 0 8px 32px rgba(44, 62, 80, 0.3);
+    ">
+        <!-- Logo dans carré blanc -->
+        <div style="
+            position: absolute;
+            left: 40px;
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        ">
+            <img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" 
+                 alt="BON PLEIN CAPITAL" 
+                 style="max-width: 120px; max-height: 120px; object-fit: contain;">
+        </div>
+        
+        <!-- Titre principal et sous-titre -->
+        <div style="
+            margin-left: 230px;
+            flex: 1;
+        ">
+            <h1 style="
+                font-family: 'Helvetica Neue', Arial, sans-serif;
+                font-size: 72px;
+                font-weight: bold;
+                color: #FFFFFF;
+                margin: 0 0 20px 0;
+                line-height: 1.1;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            ">
+                Achats de cacao en Côte d'Ivoire
+            </h1>
+            
+            <p style="
+                font-family: 'Helvetica Neue', Arial, sans-serif;
+                font-size: 28px;
+                font-weight: normal;
+                color: rgba(255,255,255,0.8);
+                margin: 0;
+                line-height: 1.3;
+            ">
+                Dashboard des Achats Cacaoyers (2013-2025)
+            </p>
+        </div>
+        
+        <!-- Texte côté droit -->
+        <div style="
+            position: absolute;
+            right: 40px;
+            text-align: right;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 24px;
+            line-height: 1.4;
+        ">
+            <div>Bon Plein</div>
+            <div>Capital</div>
+            <div>Analytics</div>
+            <div>Solution</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
