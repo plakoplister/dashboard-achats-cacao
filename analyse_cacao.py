@@ -209,7 +209,7 @@ def main():
         'style="max-width: 90px; max-height: 50px; object-fit: contain;">'
         '</div>'
         '<div style="flex: 1; text-align: center;">'
-        '<h1 style="font-size: 50px; font-weight: 700; color: white; margin: 0; line-height: 1.1; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;">'
+        '<h1 style="font-size: 42px; font-weight: 700; color: white; margin: 0; line-height: 1.1; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;">'
         'Achats de cacao de Côte d\'Ivoire'
         '</h1>'
         '<p style="font-size: 18px; color: #bee3f8; margin: 8px 0 0 0; font-weight: 400;">'
@@ -230,7 +230,7 @@ def main():
     if default_file.exists():
         df = load_data(default_file, sheet_name='dB ACHAT')
         df_export = load_data(default_file, sheet_name='dB EXPORT')
-        st.success(f"Données chargées: {format_number(len(df))} lignes (Achats) et {format_number(len(df_export) if df_export is not None else 0)} lignes (Exports)")
+        # Données chargées silencieusement
     else:
         st.error("Fichier de données non trouvé: Master_Data/DB - Achat Cacao - 2022021.xlsx")
         df_export = None
@@ -312,7 +312,7 @@ def main():
 def analyse_achats_exports(df):
     """Vue d'ensemble des ACHATS uniquement (les exports viennent d'une autre base)"""
     
-    st.info("**Focus ACHATS :** Cette base contient les achats aux fournisseurs. Les données d'export viennent d'une autre base (voir onglet Écarts pour comparaison).")
+    # Focus sur les données d'achats
     
     # Calculs ACHATS uniquement
     total_achete_global = df['Volume livré (kg)'].sum()
@@ -425,7 +425,7 @@ def analyse_achats_exports(df):
 def analyse_fournisseurs(df):
     """1. Plus grands fournisseurs par EXPORTATEUR + 2. Plus grands fournisseurs du pays"""
     
-    st.info("**Objectif :** 1) Identifier les principaux fournisseurs de chaque exportateur et leurs ports, 2) Voir les plus grands fournisseurs du pays et leur diversification")
+    # Analyse des principaux fournisseurs
     
     # PARTIE 1: Fournisseurs par EXPORTATEUR
     st.subheader("1. Plus Grands Fournisseurs par Exportateur")
@@ -565,7 +565,7 @@ def analyse_fournisseurs(df):
 def analyse_differences_poids(df_achats, df_exports):
     """Comparaison Achats (dB ACHAT) vs Exports (dB EXPORT) par EXPORTATEUR"""
     
-    st.info("**Comparaison des bases :** Volumes achetés (dB ACHAT) vs Volumes exportés (dB EXPORT) pour identifier les écarts par exportateur et par port.")
+    # Comparaison achats vs exports
     
     # Consolidation ACHATS par exportateur (depuis dB ACHAT)
     achats_data = df_achats.groupby('EXPORTATEUR SIMPLE').agg({
@@ -753,7 +753,7 @@ def analyse_differences_poids(df_achats, df_exports):
             fig = apply_bon_plein_theme(fig)
             st.plotly_chart(fig, use_container_width=True)
         else:
-            st.info("Aucun excédent détecté")
+            st.write("Aucun excédent détecté")
     
     with col2:
         st.write("### Top 10 Déficits") 
@@ -771,7 +771,7 @@ def analyse_differences_poids(df_achats, df_exports):
             fig = apply_bon_plein_theme(fig)
             st.plotly_chart(fig, use_container_width=True)
         else:
-            st.info("Aucun déficit détecté")
+            st.write("Aucun déficit détecté")
     
     # Tableau récapitulatif complet
     st.subheader("Tableau Complet des Écarts par Exportateur")
