@@ -197,81 +197,30 @@ def main():
     if not check_password():
         st.stop()
     
-    # Header BON PLEIN avec spécifications EXACTES
-    st.markdown("""
-    <div class="dashboard-header" style="
-        width: 100%;
-        max-width: 1400px;
-        height: 240px;
-        background: linear-gradient(135deg, #2C3E50 0%, #3498db 100%);
-        border-radius: 16px;
-        padding: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        margin: -1rem auto 2rem auto;
-    ">
-        <!-- Logo côté gauche -->
-        <div class="logo-container" style="
-            width: 120px;
-            height: 120px;
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        ">
-            <img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" 
-                 alt="BON PLEIN CAPITAL" 
-                 style="max-width: 80px; max-height: 80px; object-fit: contain;">
-        </div>
-        
-        <!-- Section du milieu (titre et sous-titre) -->
-        <div class="title-section" style="
-            flex: 1;
-            margin-left: 40px;
-        ">
-            <h1 style="
-                font-size: 56px;
-                font-weight: 700;
-                color: white;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                margin: 0;
-                line-height: 1.1;
-            ">
-                Achats de cacao en Côte d'Ivoire
-            </h1>
-            
-            <p style="
-                font-size: 22px;
-                font-weight: 400;
-                color: rgba(255, 255, 255, 0.85);
-                margin-top: 12px;
-                margin-bottom: 0;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            ">
-                Dashboard des Achats Cacaoyers (2013-2025)
-            </p>
-        </div>
-        
-        <!-- Texte côté droit -->
-        <div class="right-text" style="
-            text-align: right;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 20px;
-            line-height: 1.6;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        ">
-            <div>Bon Plein</div>
-            <div>Capital</div>
-            <div>Analytics</div>
-            <div>Solution</div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    # Header BON PLEIN - Approche simple compatible Streamlit Cloud
+    st.markdown(
+        '<div style="background: linear-gradient(135deg, #2C3E50 0%, #3498db 100%); '
+        'height: 240px; border-radius: 16px; padding: 40px; margin: -1rem -1rem 2rem -1rem; '
+        'display: flex; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">'
+        '<div style="width: 120px; height: 120px; background: white; border-radius: 12px; '
+        'padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-right: 40px;">'
+        '<img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" '
+        'style="width: 80px; height: 80px; object-fit: contain;">'
+        '</div>'
+        '<div style="flex: 1;">'
+        '<h1 style="font-size: 3.5rem; font-weight: 700; color: white; margin: 0; line-height: 1.1;">'
+        'Achats de cacao en Côte d\'Ivoire'
+        '</h1>'
+        '<p style="font-size: 1.4rem; color: rgba(255,255,255,0.85); margin: 12px 0 0 0;">'
+        'Dashboard des Achats Cacaoyers (2013-2025)'
+        '</p>'
+        '</div>'
+        '<div style="text-align: right; color: rgba(255,255,255,0.7); font-size: 1.25rem; line-height: 1.6;">'
+        'Bon Plein<br>Capital<br>Analytics<br>Solution'
+        '</div>'
+        '</div>',
+        unsafe_allow_html=True
+    )
     
     # Chargement direct du fichier local
     df = None
