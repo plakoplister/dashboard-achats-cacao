@@ -209,7 +209,7 @@ def main():
         'style="max-width: 90px; max-height: 50px; object-fit: contain;">'
         '</div>'
         '<div style="flex: 1; text-align: left;">'
-        '<h1 style="font-size: 32px; font-weight: 400; color: white; margin: 0; line-height: 1.1; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;">'
+        '<h1 style="font-size: 32px; font-weight: 700; color: white; margin: 0; line-height: 1.1; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;">'
         'Achats de cacao de Côte d\'Ivoire'
         '</h1>'
         '<p style="font-size: 16px; color: #bee3f8; margin: 6px 0 0 0; font-weight: 400;">'
