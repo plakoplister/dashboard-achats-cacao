@@ -424,13 +424,6 @@ def analyse_achats_exports(df):
     consolidation_display['% du Total'] = consolidation_display['% du Total'].apply(lambda x: f"{x}%")
     
     st.dataframe(consolidation_display, use_container_width=True)
-    
-    # Exemple spécifique mentionné pour ACHATS
-    if 'CARGILL' in consolidation_achats.index:
-        cargill_achats = consolidation_achats.loc['CARGILL']
-        st.success(f"**Exemple CARGILL (ACHATS uniquement):** Acheté {format_number(cargill_achats['Volume livré (kg)'])} kg ({format_number(cargill_achats['Volume livré (kg)']/1000)} tonnes) auprès de {format_number(cargill_achats['Nb Fournisseurs'])} fournisseurs")
-    
-    st.info("**Note :** Les données d'export pour comparaison sont disponibles dans l'onglet 'Écarts Achats/Exports'")
 
 def analyse_fournisseurs(df):
     """1. Plus grands fournisseurs par EXPORTATEUR + 2. Plus grands fournisseurs du pays"""
