@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Styles CSS BON PLEIN
+# Styles CSS BON PLEIN simplifiés
 st.markdown("""
 <style>
     /* Variables CSS BON PLEIN */
@@ -20,14 +20,6 @@ st.markdown("""
         --bleu-principal-fonce: #1e3a5f;
         --bleu-principal-moyen: #2c5282;
         --bleu-clair-accent: #bee3f8;
-        --gris-texte: #2c3e50;
-        --gris-secondaire: #666;
-        --gris-clair: #bdc3c7;
-    }
-    
-    /* Police principale Arial */
-    * {
-        font-family: Arial, sans-serif !important;
     }
     
     /* Header principal */
@@ -35,7 +27,7 @@ st.markdown("""
         background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
         padding: 2rem;
         margin: -1rem -1rem 2rem -1rem;
-        border-radius: 0 !important;
+        color: white;
     }
     
     .header-content {
@@ -56,7 +48,6 @@ st.markdown("""
         font-weight: 300 !important;
         margin: 0 !important;
         text-align: center;
-        font-family: Arial, sans-serif !important;
     }
     
     .main-subtitle {
@@ -67,103 +58,6 @@ st.markdown("""
         font-weight: 300 !important;
     }
     
-    /* Titres de sections */
-    .stApp h2 {
-        color: #1e3a5f !important;
-        border-bottom: 2px solid #bee3f8;
-        padding-bottom: 0.5rem;
-    }
-    
-    .stApp h1:not(.main-title) {
-        color: #1e3a5f !important;
-        border-bottom: 2px solid #bee3f8;
-        padding-bottom: 0.5rem;
-    }
-    
-    .stApp h3 {
-        color: #2c5282 !important;
-    }
-    
-    /* Métriques personnalisées - Légèrement arrondi */
-    [data-testid="metric-container"] {
-        background: white;
-        border: 1px solid #bee3f8;
-        padding: 1rem;
-        border-radius: 4px !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    [data-testid="metric-container"] label {
-        color: #666 !important;
-        font-family: Arial, sans-serif !important;
-        font-weight: 400 !important;
-    }
-    
-    [data-testid="metric-container"] div[data-testid="metric-value"] {
-        color: #1e3a5f !important;
-        font-weight: 600 !important;
-        font-family: Arial, sans-serif !important;
-    }
-    
-    /* Boutons - Légèrement arrondi */
-    .stButton > button {
-        background: linear-gradient(135deg, #1e3a5f, #2c5282) !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 4px !important;
-        font-weight: 400 !important;
-        font-family: Arial, sans-serif !important;
-    }
-    
-    .stSelectbox > div > div {
-        border-color: #2c5282 !important;
-        border-radius: 4px !important;
-    }
-    
-    /* Sidebar */
-    .css-1d391kg {
-        background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
-    }
-    
-    .css-1d391kg .stSelectbox label {
-        color: #bee3f8 !important;
-    }
-    
-    /* Tabs - Légèrement arrondi */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-    }
-    
-    .stTabs [data-baseweb="tab"] {
-        background: white;
-        border: 2px solid #bee3f8;
-        border-radius: 4px !important;
-        color: #2c5282;
-        font-family: Arial, sans-serif !important;
-    }
-    
-    .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #1e3a5f, #2c5282) !important;
-        color: white !important;
-    }
-    
-    /* DataFrames - Légèrement arrondi */
-    .stDataFrame {
-        border: 1px solid #bee3f8;
-        border-radius: 4px !important;
-    }
-    
-    /* Formatage des nombres */
-    .metric-number {
-        font-family: Arial, sans-serif !important;
-        font-weight: 600 !important;
-    }
-    
-    /* Graphiques Plotly */
-    .js-plotly-plot .plotly .modebar {
-        background: rgba(0,0,0,0) !important;
-    }
-    
     /* Footer */
     .footer {
         background: #f8f9fa;
@@ -172,27 +66,6 @@ st.markdown("""
         color: #666;
         margin-top: 2rem;
         border-top: 1px solid #bee3f8;
-    }
-    
-    /* Assurer que tous les éléments ont des coins légèrement arrondis */
-    .stSelectbox select, 
-    .stTextInput > div > div > input,
-    .stNumberInput > div > div > input,
-    .stTextArea > div > div > textarea,
-    .stFileUploader > div > div,
-    .stExpander > div,
-    .stAlert,
-    .stSuccess,
-    .stInfo,
-    .stWarning,
-    .stError {
-        border-radius: 4px !important;
-    }
-    
-    /* Radio buttons et checkboxes légèrement arrondis */
-    .stRadio > div,
-    .stCheckbox > div {
-        border-radius: 4px !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -335,14 +208,23 @@ def main():
         st.sidebar.header("Filtres")
         
         # Affichage des informations sur les données
-        with st.expander("Aperçu des données"):
-            st.write("**Dimensions:**", df.shape)
-            st.write("**Colonnes:**")
-            st.write(df.columns.tolist())
-            st.write("**Premières lignes:**")
-            st.dataframe(df.head())
-            st.write("**Types de données:**")
-            st.write(df.dtypes)
+        with st.expander("📊 Aperçu des données"):
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.write("**Dimensions:**", df.shape)
+                st.write("**Nombre d'exportateurs:**", df['EXPORTATEUR SIMPLE'].nunique())
+                st.write("**Nombre de fournisseurs:**", df['Nom fournisseur'].nunique())
+            
+            with col2:
+                st.write("**Volume total:**", f"{format_number(df['Volume livré (kg)'].sum())} kg")
+                st.write("**Moyenne par ligne:**", f"{format_number(df['Volume livré (kg)'].mean())} kg")
+            
+            with st.expander("Détails techniques"):
+                st.write("**Colonnes:**", df.columns.tolist())
+                st.write("**Types de données:**", df.dtypes.to_dict())
+                st.write("**Premières lignes:**")
+                st.dataframe(df.head(3), use_container_width=True)
         
         # Navigation par onglets
         tab1, tab2, tab3, tab4, tab5 = st.tabs([
