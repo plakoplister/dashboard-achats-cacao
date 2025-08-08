@@ -7,7 +7,7 @@ import numpy as np
 from pathlib import Path
 
 st.set_page_config(
-    page_title="BON PLEIN - Analyse Achats Cacao",
+    page_title="Dashboard Achats Cacao - Côte d'Ivoire",
     page_icon="📊",
     layout="wide"
 )
@@ -287,8 +287,9 @@ def main():
     # Footer BON PLEIN
     st.markdown("""
     <div class="footer">
-        <p><strong>BON PLEIN</strong> - Tableau de Bord Analyse Cacao | 
-        Développé pour l'optimisation des achats et exportations | 
+        <p><strong>BON PLEIN Capital Analytics Solution</strong> | 
+        Dashboard Achats Cacao - Côte d'Ivoire | 
+        v2.1 - Décembre 2024 | 
         Données confidentielles - Usage interne uniquement</p>
     </div>
     """, unsafe_allow_html=True)
