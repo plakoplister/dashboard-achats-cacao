@@ -197,31 +197,25 @@ def main():
     if not check_password():
         st.stop()
     
-    # Header BON PLEIN - Charte graphique officielle
-    st.markdown(
-        '<div style="background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%); '
-        'height: 200px; border-radius: 12px; padding: 35px; margin: -1rem -1rem 2rem -1rem; '
-        'display: flex; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">'
-        '<div style="width: 120px; height: 80px; background: white; border-radius: 8px; '
-        'padding: 15px; margin-right: 35px; '
-        'display: flex; align-items: center; justify-content: center;">'
-        '<img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" '
-        'style="max-width: 90px; max-height: 50px; object-fit: contain;">'
-        '</div>'
-        '<div style="flex: 1; text-align: left;">'
-        '<h1 style="font-size: 32px; font-weight: 700; color: white; margin: 0; line-height: 1.1; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;">'
-        'Achats de cacao de Côte d\'Ivoire'
-        '</h1>'
-        '<p style="font-size: 16px; color: #bee3f8; margin: 6px 0 0 0; font-weight: 400;">'
-        'Dashboard des Achats Cacao (2020-2021)'
-        '</p>'
-        '</div>'
-        '<div style="text-align: right; color: #bee3f8; font-size: 14px; line-height: 1.8; font-weight: 400;">'
-        'Bon Plein<br>Capital<br>Analytics<br>Solution'
-        '</div>'
-        '</div>',
-        unsafe_allow_html=True
-    )
+    # Header BON PLEIN - Style exact du repo de référence
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%); 
+                color: white; border-radius: 8px; padding: 2rem; margin-bottom: 2rem; 
+                margin: -1rem -1rem 2rem -1rem; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+            <img src="https://raw.githubusercontent.com/plakoplister/caca-dashboard-ci/main/assets/logo.png" 
+                 width="80" height="80" style="margin-right: 20px; border-radius: 8px; background: white; padding: 5px;">
+            <div>
+                <h1 style='margin: 0; font-size: 2.2rem; color: white;'>Achats de cacao de Côte d'Ivoire</h1>
+                <p style='margin: 0.5rem 0 0 0; color: #bee3f8;'>Dashboard des Achats Cacao (2020-2021)</p>
+            </div>
+        </div>
+        <div style="text-align: right; color: #bee3f8; font-size: 0.9rem;">
+            <div><strong>Bon Plein Capital</strong></div>
+            <div>Analytics Solution</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Chargement direct du fichier local
     df = None
